@@ -12,7 +12,7 @@ export default function AdminPanel({ onLogout, onBack }) {
   const [jobCategory, setJobCategory] = useState('IT');
   const [jobs, setJobs] = useState([]);
   const [applications, setApplications] = useState([]);
-  const [ setLoading] = useState(true);
+  const [,setLoading] = useState(false);
   const [editingJob, setEditingJob] = useState(null);
   const [showForm, setShowForm] = useState(false);
   const [formData, setFormData] = useState({
@@ -20,7 +20,7 @@ export default function AdminPanel({ onLogout, onBack }) {
   });
   const token = localStorage.getItem('adminToken');
 
-  useEffect(() => { fetchData(); });
+  useEffect(() => { fetchData(); },[]);
 
   const fetchData = async () => {
     setLoading(true);
