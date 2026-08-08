@@ -24,11 +24,11 @@ export default function LoginModal({ onClose, onLogin }) {
     setLoading(true);
     setError('');
     try {
-      const res = await fetch('https://ai-talent-hunt.vercel.app/api/admin/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username, password })
-      });
+const res = await fetch('https://ai-talent-hunt.vercel.app/api/admin/login', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ username, password })
+});
       const data = await res.json();
       if (res.ok) {
         onLogin(data.token);

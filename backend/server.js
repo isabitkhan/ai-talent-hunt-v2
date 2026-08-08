@@ -14,13 +14,23 @@ const Admin = require("./models/Admin");
 const app = express();
 
 // Middleware
+const allowedOrigins = [
+  "http://localhost:3000",
+  "https://ai-talent-hunt.mesabitkhan.workers.dev",
+];
 
 app.use(
   cors({
-    origin: "https://ai-talent-hunt.mesabitkhan.workers.dev",
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
-  })
+  }),
 );
 
 app.use(express.json());
