@@ -24,7 +24,7 @@ export default function LoginModal({ onClose, onLogin }) {
     setLoading(true);
     setError('');
     try {
-      const res = await fetch('/api/admin/login', {
+      const res = await fetch('https://ai-talent-hunt-l6s25lvju-sabitkhans-projects.vercel.app/api/admin/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password })
