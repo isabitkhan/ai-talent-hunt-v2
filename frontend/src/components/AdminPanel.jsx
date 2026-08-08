@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { X, Plus, Trash2, Edit2, Save, ArrowLeft, FileText, Code2, Languages } from 'lucide-react';
+import {  Plus, Trash2, Edit2, Save, ArrowLeft, FileText, Code2, Languages } from 'lucide-react';
 
 const C = {
   bg: "#0B0F19", surface: "#121A2C", surfaceAlt: "#19233A",
@@ -12,7 +12,7 @@ export default function AdminPanel({ onLogout, onBack }) {
   const [jobCategory, setJobCategory] = useState('IT');
   const [jobs, setJobs] = useState([]);
   const [applications, setApplications] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [ setLoading] = useState(true);
   const [editingJob, setEditingJob] = useState(null);
   const [showForm, setShowForm] = useState(false);
   const [formData, setFormData] = useState({
@@ -20,7 +20,7 @@ export default function AdminPanel({ onLogout, onBack }) {
   });
   const token = localStorage.getItem('adminToken');
 
-  useEffect(() => { fetchData(); }, []);
+  useEffect(() => { fetchData(); });
 
   const fetchData = async () => {
     setLoading(true);

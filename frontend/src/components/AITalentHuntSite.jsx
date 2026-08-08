@@ -180,7 +180,6 @@ export default function AITalentHuntSite({ isAdmin, onLoginClick, onAdminClick }
       .catch(() => setJobsLoading(false));
   }, []);
 
-  const allJobs = [...itJobs, ...interpJobs];
 
   const scrollTo = (id) => {
     setMenuOpen(false);
