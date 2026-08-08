@@ -20,8 +20,9 @@ app.use(
     origin: "https://ai-talent-hunt.mesabitkhan.workers.dev",
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
-  }),
+  })
 );
+
 app.use(express.json());
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
@@ -73,7 +74,9 @@ app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).json({ message: err.message || "Something went wrong!" });
 });
-
+app.get("/", (req, res) => {
+  res.json({ message: "AI Talent Hunt API is running!" });
+});
 const PORT = process.env.PORT || 5000;
 module.exports = app;
 // app.listen(PORT, () => console.log("Server running on port " + PORT));
